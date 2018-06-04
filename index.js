@@ -12,18 +12,18 @@ function getRepositories() {
   req.send();
 }
 
-function getCommits(el) {
+function getBranches(el) {
   const name = el.dataset.repo;
-  const req = new XMLHttpRequest()
-  req.addEventListener("load", showCommits)
-  req.open("GET", 'https://api.github.com/repos/octocat/' + name + '/commits')
+  const req = new XMLHttpRequest();
+  req.addEventListener("load", displayBranches)
+  req.open("GET", `https://api.github.com/repos/${user}/${name}/branches`)
   req.send()
 }
 
 function getCommits(el) {
   const name = el.dataset.repo;
-  const req = new XMLHttpRequest()
-  req.addEventListener("load", showCommits)
-  req.open("GET", 'https://api.github.com/repos/octocat/' + name + '/commits')
+  const req = new XMLHttpRequest();
+  req.addEventListener("load", displayCommits)
+  req.open("GET", `https://api.github.com/repos/${user}/${name}/commits`)
   req.send()
 }
