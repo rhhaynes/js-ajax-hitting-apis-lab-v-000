@@ -6,6 +6,10 @@ function displayRepositories(event, data) {
   document.getElementById("repositories").innerHTML = repoList;
 }
 
+function displayBranches(){}
+
+function displayCommits(){}
+
 function getRepositories() {
   const req  = new XMLHttpRequest();
   const user = document.getElementById('username').value;
