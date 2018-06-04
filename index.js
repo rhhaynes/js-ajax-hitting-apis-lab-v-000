@@ -31,19 +31,19 @@ function getRepositories() {
   req.send();
 }
 
-function getBranches(el) {
+function getBranches(el,r) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayBranches);
-  req.open("GET", this.branches_url);
+  req.open("GET", r.branches_url);
   req.send();
 }
 
-function getCommits(el) {
+function getCommits(el,r) {
   debugger;
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayCommits);
-  req.open("GET", this.commits_url);
+  req.open("GET", r.commits_url);
   req.send();
 }
