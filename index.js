@@ -31,7 +31,6 @@ function getRepositories() {
 }
 
 function getBranches(el) {
-  const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayBranches);
   req.open("GET", `https://api.github.com/repos/${el.dataset.repository}/${el.dataset.name}/branches`);
@@ -39,7 +38,6 @@ function getBranches(el) {
 }
 
 function getCommits(el) {
-  const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayCommits);
   req.open("GET", `https://api.github.com/repos/${el.dataset.repository}/${el.dataset.name}/commits`);
