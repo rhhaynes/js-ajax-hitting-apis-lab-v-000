@@ -1,8 +1,8 @@
 function displayRepositories(event, data) {
   let repos = JSON.parse(this.responseText);
   const repoList = '<ul>' + repos.map(r => `<li>${r.name} -
-    <a href="#" data-repo="${r.name}" onclick="getBranches(this)">Get Branches</a> -
-    <a href="#" data-repo="${r.name}" onclick="getCommits(this)">Get Commits</a></li>`).join('') + '</ul>';
+    <a href="#" data-repo="${r.name}" onclick="getBranches(this, user)">Get Branches</a> -
+    <a href="#" data-repo="${r.name}" onclick="getCommits(this, user)">Get Commits</a></li>`).join('') + '</ul>';
   document.getElementById("repositories").innerHTML = repoList;
 }
 
@@ -30,7 +30,7 @@ function getRepositories() {
   req.send();
 }
 
-function getBranches(el) {
+function getBranches(el, user) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayBranches)
@@ -38,7 +38,7 @@ function getBranches(el) {
   req.send()
 }
 
-function getCommits(el) {
+function getCommits(el, user) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayCommits)
