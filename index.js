@@ -9,16 +9,15 @@ function displayRepositories(event, data) {
 
 function displayBranches(){
   const branches = JSON.parse(this.responseText);
-  const branchesList = '<strong>Branches:</strong><ol>' + branches.map(branch =>
-    `<li>${branch.name}</li>`).join('') + '</ol>';
+  const branchesList = '<strong>Branches:</strong><ol>' +
+    branches.map(branch => `<li>${branch.name}</li>`).join('') + '</ol>';
   document.getElementById('details').innerHTML = branchesList;
 }
 
 function displayCommits(){
   const commits = JSON.parse(this.responseText);
-  const commitsList = '<strong>Commits:</strong><ul>' + commits.map(commit =>
-    `<li><strong>${commit.author.login}</strong> - ${commit.commit.message}</li>`
-    ).join('') + '</ul>';
+  const commitsList = '<strong>Commits:</strong><ul>' +
+    commits.map(commit => `<li><strong>${commit.author.login}</strong> - ${commit.commit.message}</li>`).join('') + '</ul>';
   document.getElementById('details').innerHTML = commitsList;
 }
 
