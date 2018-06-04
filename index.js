@@ -11,7 +11,7 @@ function displayBranches(){
   const branches = JSON.parse(this.responseText);
   debugger;
   const branchesList = '<ul>' + branches.map(branch =>
-    `<li><strong>${branch.name}</strong> - ${branch.branch.message}</li>`
+    `<li><strong>${branch.name}</strong> - ${branch.name}</li>`
     ).join('') + '</ul>';
   document.getElementById('details').innerHTML = branchesList;
 }
