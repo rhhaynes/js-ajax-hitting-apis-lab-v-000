@@ -31,7 +31,7 @@ function getRepositories() {
   req.send();
 }
 
-function getBranches(el,url) {
+function getBranches(el) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayBranches);
@@ -39,7 +39,7 @@ function getBranches(el,url) {
   req.send();
 }
 
-function getCommits(el,url) {
+function getCommits(el) {
   debugger;
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
