@@ -2,8 +2,8 @@ function displayRepositories(event, data) {
   let repos = JSON.parse(this.responseText);
   const repoList = '<ul>' + repos.map(r => `<li>${r.name}<br/>
     <a href="${r.html_url}">${r.html_url}</a><br/>
-    <a href="#" data-repo="${r.name}" onclick="getBranches(this,${r})">Get Branches</a> |
-    <a href="#" data-repo="${r.name}" onclick="getCommits(this,${r})">Get Commits</a></li>`).join('') + '</ul>';
+    <a href="#" data-repo="${r.name}" onclick="getBranches(this,${r.branches_url})">Get Branches</a> |
+    <a href="#" data-repo="${r.name}" onclick="getCommits(this,${r.commits_url})">Get Commits</a></li>`).join('') + '</ul>';
   document.getElementById("repositories").innerHTML = repoList;
 }
 
@@ -31,19 +31,19 @@ function getRepositories() {
   req.send();
 }
 
-function getBranches(el,r) {
+function getBranches(el,url) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayBranches);
-  req.open("GET", r.branches_url);
+  req.open("GET", url);
   req.send();
 }
 
-function getCommits(el,r) {
+function getCommits(el,url) {
   debugger;
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayCommits);
-  req.open("GET", r.commits_url);
+  req.open("GET", url);
   req.send();
 }
