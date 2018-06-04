@@ -40,6 +40,7 @@ function getBranches(el) {
 }
 
 function getCommits(el) {
+  debugger;
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayCommits);
