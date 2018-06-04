@@ -9,7 +9,6 @@ function displayRepositories(event, data) {
 
 function displayBranches(){
   const branches = JSON.parse(this.responseText);
-  debugger;
   const branchesList = '<ul>' + branches.map((branch, idx) =>
     `<li><strong>${idx}.</strong> ${branch.name}</li>`).join('') + '</ul>';
   document.getElementById('details').innerHTML = branchesList;
