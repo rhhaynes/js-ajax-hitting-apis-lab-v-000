@@ -1,5 +1,6 @@
 function displayRepositories(event, data) {
   let repos = JSON.parse(this.responseText);
+  debugger;
   const repoList = '<ul>' + repos.map(r => `<li>${r.name} -
     <a href="#" data-repo="${r.name}" onclick="getBranches(this, user)">Get Branches</a> -
     <a href="#" data-repo="${r.name}" onclick="getCommits(this, user)">Get Commits</a></li>`).join('') + '</ul>';
