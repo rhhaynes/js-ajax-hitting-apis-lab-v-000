@@ -6,6 +6,14 @@ function displayRepositories(event, data) {
   document.getElementById("repositories").innerHTML = repoList;
 }
 
+function displayBranches(){
+  const branches = JSON.parse(this.responseText);
+  const branchesList = '<ul>' + branches.map(branch =>
+    `<li><strong>${branch.author.login}</strong> - ${branch.branch.message}</li>`
+    ).join('') + '</ul>';
+  document.getElementById('details').innerHTML = branchesList;
+}
+
 function displayCommits(){
   const commits = JSON.parse(this.responseText);
   const commitsList = '<ul>' + commits.map(commit =>
