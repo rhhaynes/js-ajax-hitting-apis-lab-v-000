@@ -41,7 +41,6 @@ function getBranches(el, path) {
 }
 
 function getCommits(el, path) {
-  debugger;
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayCommits);
