@@ -3,8 +3,8 @@ function displayRepositories(event, data) {
   debugger;
   const repoList = '<ul>' + repos.map(r => `<li>${r.name}<br/>
     <a href="${r.html_url}">${r.html_url}</a><br/>
-    <a href="#" data-username="" data-repository="${r.name}" onclick="getBranches(this)">Get Branches</a> |
-    <a href="#" data-username="" data-repository="${r.name}" onclick="getCommits(this)">Get Commits</a></li>`).join('') + '</ul>';
+    <a href="#" data-username="${r.owner.login}" data-repository="${r.name}" onclick="getBranches(this)">Get Branches</a> |
+    <a href="#" data-username="${r.owner.login}" data-repository="${r.name}" onclick="getCommits(this)">Get Commits</a></li>`).join('') + '</ul>';
   document.getElementById("repositories").innerHTML = repoList;
 }
 
