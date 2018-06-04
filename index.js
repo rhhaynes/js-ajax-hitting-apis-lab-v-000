@@ -9,6 +9,7 @@ function displayRepositories(event, data) {
 
 function displayBranches(){
   const branches = JSON.parse(this.responseText);
+  debugger;
   const branchesList = '<ul>' + branches.map(branch =>
     `<li><strong>${branch.author.login}</strong> - ${branch.branch.message}</li>`
     ).join('') + '</ul>';
