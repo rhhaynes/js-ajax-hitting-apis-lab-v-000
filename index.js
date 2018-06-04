@@ -2,8 +2,8 @@ function displayRepositories(event, data) {
   let repos = JSON.parse(this.responseText);
   debugger;
   const repoList = '<ul>' + repos.map(r => `<li>${r.name} -
-    <a href="#" data-repo="${r.name}" onclick="getBranches(this, user)">Get Branches</a> -
-    <a href="#" data-repo="${r.name}" onclick="getCommits(this, user)">Get Commits</a></li>`).join('') + '</ul>';
+    <a href="#" data-repo="${r.name}" onclick="getBranches(this)">Get Branches</a> -
+    <a href="#" data-repo="${r.name}" onclick="getCommits(this)">Get Commits</a></li>`).join('') + '</ul>';
   document.getElementById("repositories").innerHTML = repoList;
 }
 
@@ -31,7 +31,7 @@ function getRepositories() {
   req.send();
 }
 
-function getBranches(el, user) {
+function getBranches(el) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayBranches)
@@ -39,10 +39,11 @@ function getBranches(el, user) {
   req.send()
 }
 
-function getCommits(el, user) {
+function getCommits(el) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
-  req.addEventListener("load", displayCommits)
-  req.open("GET", `https://api.github.com/repos/${user}/${name}/commits`)
-  req.send()
+  req.addEventListener("load", displayCommits);
+  req.open("GET", this.commits_url);
+  // req.open("GET", `https://api.github.com/repos/${user}/${name}/commits`);
+  req.send();
 }
