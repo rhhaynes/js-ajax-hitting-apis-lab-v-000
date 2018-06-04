@@ -32,19 +32,19 @@ function getRepositories() {
   req.send();
 }
 
-function getBranches(el, user) {
+function getBranches(el, path) {
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayBranches);
-  req.open("GET", `https://api.github.com/repos/${user}/${name}/branches`);
+  req.open("GET", `https://api.github.com/repos/${path}/branches`);
   req.send();
 }
 
-function getCommits(el, user) {
+function getCommits(el, path) {
   debugger;
   const name = el.dataset.repo;
   const req = new XMLHttpRequest();
   req.addEventListener("load", displayCommits);
-  req.open("GET", `https://api.github.com/repos/${user}/${name}/commits`);
+  req.open("GET", `https://api.github.com/repos/${path}/commits`);
   req.send();
 }
